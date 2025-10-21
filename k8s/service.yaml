@@ -7,6 +7,6 @@ spec:
     app: person
   ports:
     - protocol: TCP
-      port: 8081
-      targetPort: 8081
+      port: 8081           # service port
+      targetPort: 8081     # container port
   type: NodePort

@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/<your-username>/springboot-demo.git'
+                git branch: 'main', url: 'https://github.com/rkmmm508/springboot-demo.git'
             }
         }
 
@@ -39,6 +39,15 @@ pipeline {
                 sh 'kubectl apply -f k8s/deployment.yaml'
                 sh 'kubectl apply -f k8s/service.yaml'
             }
+        }
+    }
+
+    post {
+        success {
+            echo "Pipeline completed successfully! Spring Boot app 'person' deployed to Kubernetes."
+        }
+        failure {
+            echo "Pipeline failed! Check logs for errors."
         }
     }
 }

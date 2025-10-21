@@ -16,4 +16,4 @@ spec:
       - name: person
         image: rkm508/person:latest
         ports:
-        - containerPort: 8081
+        - containerPort: 8081   # updated to match your app
